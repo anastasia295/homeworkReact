@@ -8,9 +8,9 @@ class ClassComponentChild extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <div>Текст: {this.props.text}</div>
-      </div>
+      </>
     );
   }
 }
