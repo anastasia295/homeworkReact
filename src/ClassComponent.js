@@ -7,7 +7,7 @@ class ClassComponent extends Component {
     this.state = {
       value: "",
       text: "",
-      formValid: false,
+      isValid: true,
     };
     this.textInput = React.createRef();
     this.handleChange = this.handleChange.bind(this);
@@ -24,9 +24,9 @@ class ClassComponent extends Component {
 
   handleChange(event) {
     if (event.target.value === "реакт") {
-      this.setState({ formValid: true });
+      this.setState({ isValid: false });
     } else {
-      this.setState({ formValid: false });
+      this.setState({ isValid: true });
     }
     this.setState({ value: event.target.value });
   }
@@ -68,7 +68,7 @@ class ClassComponent extends Component {
           ref={this.textInput}
         />
         <button
-          disabled={this.state.formValid}
+          disabled={!this.state.isValid}
           onClick={this.handleClickAddValue}
         >
           Добавить текст
